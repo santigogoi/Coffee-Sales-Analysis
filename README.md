@@ -5,6 +5,7 @@ The goal of this project is to analyse the sales data of Coffee Shop, the shop t
 
 ## Tech Stack
 The project was built using the following tools and technologies:<br>
+
 • MySQL Workbench
 
 ## Data Source
@@ -44,8 +45,29 @@ Data on multiple tables ~10,000 rows, consists of coffee sales transactions, cus
     Identify the top 3 cities based on the highest sales, return city name, total sales, total rent, total customers, and  estimated  coffee consumers
     
 ## Findings
-**City-wise Coffee Consumer Distribution**
+1. **Delhi** has the highest coffee consumer base **(7.75 million)**, but it does not generate the highest revenue.
 
+2. **Pune** is the top revenue-generating city **(₹434,330)** despite having a moderate consumer base.
+
+3. **Pune** records the highest average sales per customer **(₹24,197.88)**, indicating strong customer spending behaviour.
+
+4. **Chennai** and **Bangalore** also show high sales efficiency with average sales per customer above **₹22,000**.
+
+5. **Mumbai**, though second in consumer population **(5.10 million)**, shows relatively low revenue **(₹71,340)**.
+
+6. **Jaipur** has the highest number of **unique customers (69)**, showing strong customer acquisition.
+
+7. **Cold Brew Coffee Pack** is the best-selling product with **1,326 units sold**.
+
+8. Beverage products significantly outperform accessories in overall sales volume.
+
+9. **Mumbai** has the highest estimated rent **(₹31,500)** but low revenue efficiency.
+
+10. **Hyderabad** and **Bangalore** incur high rent per customer, impacting profitability.
+
+11. Smaller cities with efficient customer conversion outperform larger metros in revenue contribution.
+
+12. Revenue performance is driven more by average spend per customer than by total consumer population.
 
 ## Recommendations
 After analysing the data, the recommended top three cities for new store openings are:
