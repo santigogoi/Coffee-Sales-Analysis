@@ -13,7 +13,7 @@ CREATE TABLE city(
 	estimated_rent	FLOAT,
 	city_rank INT
 );
-select COUNT(*) from city;
+SELECT COUNT(*) FROM city;
 
 CREATE TABLE customers(
 	customer_id INT PRIMARY KEY,	
@@ -21,14 +21,14 @@ CREATE TABLE customers(
 	city_id VARCHAR(15),
 	CONSTRAINT fk_city FOREIGN KEY (city_id) REFERENCES city(city_id)
 );
-select COUNT(*) from customers;
+SELECT COUNT(*) FROM customers;
 
 CREATE TABLE products(
 	product_id	INT PRIMARY KEY,
 	product_name VARCHAR(35),	
 	Price float
 );
-select COUNT(*) from products;
+SELECT COUNT(*) FROM products;
 
 CREATE TABLE sales(
 	sale_id	INT PRIMARY KEY,
@@ -40,4 +40,4 @@ CREATE TABLE sales(
 	CONSTRAINT fk_products FOREIGN KEY (product_id) REFERENCES products(product_id),
 	CONSTRAINT fk_customers FOREIGN KEY (customer_id) REFERENCES customers(customer_id) 
 );
-select COUNT(*) from sales;
+SELECT COUNT(*) FROM sales;
