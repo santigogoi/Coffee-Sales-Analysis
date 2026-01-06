@@ -1,19 +1,19 @@
 # 🍵Coffee-Sales-Analysis
 
-## Objective
+## 🎯 Objective
 The goal of this project is to analyse the sales data of Coffee Shop, the shop that has been selling its products online since January 2023, and to recommend the top three major cities in India for opening new coffee shop locations based on consumer demand and sales performance.
 
-## Tech Stack
+## 🛠 Tech Stack
 The project was built using the following tools and technologies:<br>
 
 • MySQL Workbench
 
-## Data Source
+## 📂 Data Source
 Source: Zero Analyst 
 
 Data on multiple tables ~10,000 rows, consists of coffee sales transactions, customer information, and product details.
 
-## Key Questions
+## ❔ Key Questions
 1. **Coffee Consumers Count**  
    How many people in each city are estimated to consume coffee, given that 25% of the population does?
 
@@ -44,7 +44,7 @@ Data on multiple tables ~10,000 rows, consists of coffee sales transactions, cus
 10. **Market Potential Analysis**  
     Identify the top 3 cities based on the highest sales, return city name, total sales, total rent, total customers, and  estimated  coffee consumers
     
-## Findings
+## 📊 Key Findings
 1. **Delhi** has the highest coffee consumer base **(7.75 million)**, but it does not generate the highest revenue.
 
 2. **Pune** is the top revenue-generating city **(₹434,330)** despite having a moderate consumer base.
@@ -69,7 +69,7 @@ Data on multiple tables ~10,000 rows, consists of coffee sales transactions, cus
 
 12. Revenue performance is driven more by average spend per customer than by total consumer population.
 
-## Recommendations
+## 💡 Recommendations
 After analysing the data, the recommended top three cities for new store openings are:
 
 **City 1: Pune**  
