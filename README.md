@@ -39,10 +39,10 @@ Data on multiple tables ~10,000 rows, consists of coffee sales transactions, cus
    Find each city and their average sale per customer and average rent per customer.
 
 9. **Average Monthly Sales Growth Per City**  
-   Sales growth rate: Calculate the average percentage growth (or decline) in monthly sales.
+   Calculate the average percentage growth (or decline) in monthly sales.
 
 10. **Overall Average Growth**
-    Sales growth rate: Calculate the average percentage growth (or decline) in sales over YoY.
+    Calculate the average percentage growth (or decline) in sales over YoY.
     
 12. **Market Potential Analysis**  
     Identify the top 3 cities based on the highest sales, return city name, total sales, total rent, total customers, and  estimated  coffee consumers.
