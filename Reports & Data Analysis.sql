@@ -137,42 +137,69 @@ FROM city_rent AS cr
 JOIN city_table AS ct ON cr.city_name=ct.city_name
 ORDER BY 4 DESC;
 
--- 9. Monthly Sales Growth
--- Sales growth rate: Calculate the percentage growth (or decline) in sales over different time periods (monthly).
-WITH monthly_sales AS
-(
-	SELECT 
-		ci.city_name,
-		EXTRACT(MONTH FROM sale_date) AS month,
-		EXTRACT(YEAR FROM sale_date) AS year,
-		SUM(s.total) AS total_sale
-	FROM sales AS s
-	JOIN customers AS c ON s.customer_id=c.customer_id
-	JOIN city AS ci ON ci.city_id=c.city_id
-	GROUP BY 1, 2, 3
-	ORDER BY 1, 3, 2
+-- 9. Average Monthly Sales Growth Per City
+-- Sales growth rate: Calculate the average percentage growth (or decline) in monthly sales.
+WITH monthly_sales AS (
+    SELECT 
+        ci.city_name,
+        EXTRACT(MONTH FROM sale_date) AS month,
+        EXTRACT(YEAR FROM sale_date) AS year,
+        SUM(s.total) AS total_sale
+    FROM sales AS s
+    JOIN customers AS c ON s.customer_id = c.customer_id
+    JOIN city AS ci ON ci.city_id = c.city_id
+    GROUP BY 1, 2, 3
 ),
-growth_ratio
-AS
-(
-	SELECT city_name,
-		   month,
-		   year,
-		   total_sale AS cr_month_sale,
-		   LAG(total_sale, 1) OVER(PARTITION BY city_name ORDER BY year, month) AS last_month_sale
-	FROM monthly_sales
+growth_ratio AS (
+    SELECT 
+        city_name,
+        month,
+        year,
+        total_sale AS cr_month_sale,
+        LAG(total_sale, 1) OVER(PARTITION BY city_name ORDER BY year, month) AS last_month_sale
+    FROM monthly_sales
 )
-SELECT city_name
-       month,
-       year,
-       cr_month_sale,
-       last_month_sale,
-       ROUND((cr_month_sale-last_month_sale)/last_month_sale*100, 2) AS growth_ratio
+SELECT 
+    city_name,
+    ROUND(AVG((cr_month_sale - last_month_sale) / last_month_sale * 100), 2) AS avg_growth_rate
 FROM growth_ratio
-WHERE last_month_sale IS NOT NULL;
+WHERE last_month_sale IS NOT NULL
+GROUP BY city_name
+ORDER BY avg_growth_rate ASC;
 
--- 10. Market Potential Analysis
--- Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated coffee consumer
+-- 10. Overall Average Growth
+-- Sales growth rate: Calculate the average percentage growth (or decline) in sales over YoY.
+WITH yearly_sales AS (
+    SELECT 
+        ci.city_name,
+        EXTRACT(YEAR FROM sale_date) AS year,
+        SUM(s.total) AS total_sale
+    FROM sales AS s
+    JOIN customers AS c ON s.customer_id = c.customer_id
+    JOIN city AS ci ON ci.city_id = c.city_id
+    GROUP BY 1, 2
+),
+growth_ratio AS (
+    SELECT 
+        city_name,
+        year,
+        total_sale AS cr_year_sale,
+        LAG(total_sale, 1) OVER(PARTITION BY city_name ORDER BY year) AS last_year_sale
+    FROM yearly_sales
+)
+SELECT ROUND(AVG(avg_growth_rate), 2) AS overall_avg_decline
+FROM (
+    SELECT 
+        city_name,
+        AVG((cr_year_sale - last_year_sale) / last_year_sale * 100) AS avg_growth_rate
+    FROM growth_ratio
+    WHERE last_year_sale IS NOT NULL
+    GROUP BY city_name
+) AS city_avg
+WHERE avg_growth_rate < 0;
+
+-- 11. Market Potential Analysis
+-- Identify the top 3 cities based on the highest sales, return city name, total sales, total rent, total customers, and estimated coffee consumers
 WITH city_table
 AS
 (
