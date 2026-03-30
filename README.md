@@ -42,9 +42,9 @@ Data on multiple tables ~10,000 rows, consists of coffee sales transactions, cus
    Sales growth rate: Calculate the average percentage growth (or decline) in monthly sales.
 
 10. **Overall Average Growth**
-   Sales growth rate: Calculate the average percentage growth (or decline) in sales over YoY.
+    Sales growth rate: Calculate the average percentage growth (or decline) in sales over YoY.
     
-11. **Market Potential Analysis**  
+12. **Market Potential Analysis**  
     Identify the top 3 cities based on the highest sales, return city name, total sales, total rent, total customers, and  estimated  coffee consumers.
     
 ## 📊 Key Findings
