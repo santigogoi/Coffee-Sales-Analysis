@@ -36,13 +36,16 @@ Data on multiple tables ~10,000 rows, consists of coffee sales transactions, cus
    How many unique customers are there in each city who have purchased coffee products?
 
 8. **Average Sale vs Rent**  
-   Find each city and their average sale per customer and average rent per customer
+   Find each city and their average sale per customer and average rent per customer.
 
-9. **Monthly Sales Growth**  
-   Sales growth rate: Calculate the percentage growth (or decline) in sales over different time periods (monthly).
+9. **Average Monthly Sales Growth Per City**  
+   Sales growth rate: Calculate the average percentage growth (or decline) in monthly sales.
 
-10. **Market Potential Analysis**  
-    Identify the top 3 cities based on the highest sales, return city name, total sales, total rent, total customers, and  estimated  coffee consumers
+10. **Overall Average Growth**
+   Sales growth rate: Calculate the average percentage growth (or decline) in sales over YoY.
+    
+11. **Market Potential Analysis**  
+    Identify the top 3 cities based on the highest sales, return city name, total sales, total rent, total customers, and  estimated  coffee consumers.
     
 ## 📊 Key Findings
 1. **Delhi** has the highest coffee consumer base **(7.75 million)**, but it does not generate the highest revenue.
